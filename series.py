@@ -25,6 +25,21 @@ def lucas(n):
     return luc
 
 
+def sum_series(n, n1=0, n2=1):
+    """Takes an int n as parameter and 2 optional parameters and returns the nth number in sequence using an iterative method. The optional parameters determine the two starting values for the sequence.
+    """
+    if n == 0:
+        return n1
+    ss = n2
+    prev = n1
+    for _ in range(1, n):
+        tmp = ss
+        ss += prev
+        prev = tmp
+    return ss
+
+
 if __name__ == '__main__':
-    print(', '.join([str(fibonacci(i)) for i in range(10)]))
-    print(', '.join([str(lucas(i)) for i in range(10)]))
+    print('This module defines functions that implement mathematical series.')
+    print('...')
+    print('\nfibonacci(n):\n\n\tReturns the nth value in the fibonacci series.\n')
