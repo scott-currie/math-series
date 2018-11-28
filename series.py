@@ -1,12 +1,13 @@
 def fibonacci(n):
     """Takes an int n as parameter and returns the nth Fibonacci number using an iterative method.
     """
-    p1 = 1
-    p2 = 1
-    fib = 0
-    for _ in range(n + 1):
+    fib = 1
+    prev = 1
+    for _ in range(2, n):
         tmp = fib
-        fib = p1 + p2
-        p1 = p2
-        p2 = tmp
+        fib += prev
+        prev = tmp
     return fib
+
+if __name__ == '__main__':
+    fibonacci(5)
