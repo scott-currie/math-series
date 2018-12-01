@@ -1,42 +1,41 @@
 def fibonacci(n):
-    """Takes an int n as parameter and returns the nth Fibonacci number using an iterative method.
+    """Find nth fibonacci number using recursive algorithm.
+
+    input: n (int) n for nth fibonacci number
+    returns: (int) representing value of nth fib number
     """
-    if n == 0:
-        return 0
-    fib = 1
-    prev = 0
-    for _ in range(1, n):
-        tmp = fib
-        fib += prev
-        prev = tmp
-    return fib
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
 
 def lucas(n):
-    """Takes an int n as parameter and returns the nth Lucas number using an iterative method.
+    """Find nth lucas number using recursive algorithm.
+
+    input: n (int) n for nth lucas number
+    returns: (int) representing value of nth lucas number
     """
-    if n == 0:
+    if n < 1:
         return 2
-    luc = 1
-    prev = 2
-    for _ in range(1, n):
-        tmp = luc
-        luc += prev
-        prev = tmp
-    return luc
+    elif n == 1:
+        return 1
+    return lucas(n - 1) + lucas(n - 2)
 
 
 def sum_series(n, n1=0, n2=1):
-    """Takes an int n as parameter and 2 optional parameters and returns the nth number in sequence using an iterative method. The optional parameters determine the two starting values for the sequence.
+    """Find nth value in a mathematical series, starting with 2 arbitrary numbers.
+
+    input: n (int) n for nth value in sequence
+    input: n1 (int) optional, represents val at sequence n=0
+    input: n2 (int) optional, represents val at sequence n=1
+    returns: (int) representing value at sequence n
     """
-    if n == 0:
+    if n < 1:
         return n1
-    ss = n2
-    prev = n1
-    for _ in range(1, n):
-        tmp = ss
-        ss += prev
-        prev = tmp
-    return ss
+    elif n == 1:
+        return n2
+    return sum_series(n - 1, n1, n2) + sum_series(n - 2, n1, n2)
 
 
 if __name__ == '__main__':
